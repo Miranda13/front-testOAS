@@ -55,6 +55,23 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="card">
+              <h2 class="card-header">
+                Partido 2
+              </h2>
+              <div class="card-body">
+                <label for="inputGoles" >{{grupos[2].nombre}}</label>
+                <div class="itemForm">
+                  <input #goles1 class="form-control" type="number" placeholder="Goles"/>
+                </div>
+                <label for="inputGoles" >{{grupos[3].nombre}}</label>
+                <div class="itemForm">
+                  <input #goles2 class="form-control" type="number" placeholder="Goles"/>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <button (click)="puntuar(goles1.value,goles2.value,grupos[0].id,grupos[1].id)"> Ingresar </button>
 
