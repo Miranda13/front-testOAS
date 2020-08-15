@@ -1,5 +1,6 @@
 export interface Grupo {
-  id: number;
+  id: string;
   nombre: string;
   pais: string;
+  puntos: number;
 }

@@ -1,1 +1,63 @@
-<p>principal works!</p>
+
+<div class="container">
+  <h1 class="tituloPrincipal"> Bienvenido al cuadrangular de fútbol </h1>
+  <p> Estos son los equipos que estan participando:</p>
+  <div *ngIf="grupos==undefined">
+    <p> Aún no has registrado grupos</p>
+  </div>
+
+
+  <div *ngIf="grupos" class="container">
+    <div *ngIf="grupos.length < 4">
+      <button  routerLinkActive="active" routerLink="/registrar"> Registrar </button>
+    </div>
+    <div class="row">
+        <div *ngFor="let grupo of grupos; let indicar=index" class="card">
+        <h2 class="card-header">
+          {{equipos[indicar]}}
+        </h2>
+        <img src="../../../assets/img/balon.jpg">
+        <div class="card-body card-a-model">
+          <div class="form-group">
+            <label class="row">Nombre:</label>
+            {{grupo.nombre}}
+            <label class="row">País:</label>
+            {{grupo.pais}}
+          </div>
+        </div>
+          <button type="button" name="button" class="delete" (click)="routeDelete(grupo)"><i class="fa fa-trash"></i></button>
+          <button type="button" name="button" class="edit"  (click)="routeEdit(grupo)"><i class="fa fa-edit"></i></button>
+      </div>
+  </div>
+
+  <h1 class="row tituloPrincipal"> Registro de partidos </h1>
+
+      <ng-template #showMessage>
+        <p> Solamente puedes registrar cuatro grupos</p>
+      </ng-template>
+
+      <div *ngIf="grupos.length==4; else showMessage">
+
+      </div>
+
+
+    <h1 class="tituloPrincipal"> Tabla de puntuación </h1>
+
+    <table class="table table-hover sortable">
+      <thead class="thead table-title">
+        <tr >
+          <th> Nombre del equipo</th>
+          <th> País</th>
+          <th> Puntos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let grupo of grupos">
+        <td>{{grupo.nombre}} </td>
+        <td>{{grupo.pais}} </td>
+        <td >{{grupo.puntos}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+
+<div class="container justify-content-center">
+  <div class="row">
+    <h1 class="message"> Registro de equipos </h1>
+  </div>
+  <button  routerLinkActive="active" routerLink="/principal"> Regresar </button>
+  <div class="row">
+      <div *ngFor="let equipo of equipos" class="card">
+      <h2 class="card-header">
+        {{equipo}}
+      </h2>
+      <img src="../../../assets/img/balon.jpg">
+      <div class="card-body card-a-model">
+
+        <div class="form-group">
+          <label for="inputName" >Nombre</label>
+          <div class="itemForm">
+            <input #nombre class="form-control" type="text" placeholder="Nombre del equipo"/>
+          </div>
+          <label for="inputName" >País</label>
+          <div class="itemForm">
+            <input #pais class="form-control" type="text" placeholder="País de procedencia"/>
+          </div>
+        </div>
+
+        <div class="itemForm">
+          <button type="button" (click)="add(nombre.value, pais.value, 0)">Registrar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
