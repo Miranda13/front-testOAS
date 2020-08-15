@@ -25,18 +25,38 @@
             {{grupo.pais}}
           </div>
         </div>
-          <button type="button" name="button" class="delete" (click)="routeDelete(grupo)"><i class="fa fa-trash"></i></button>
-          <button type="button" name="button" class="edit"  (click)="routeEdit(grupo)"><i class="fa fa-edit"></i></button>
+          <button type="button" name="button" class="delete" (click)="borrar(indicar)"><i class="fa fa-trash"></i></button>
+          <button type="button" name="button" class="edit"  (click)="rutaEditar(indicar)"><i class="fa fa-edit"></i></button>
       </div>
   </div>
 
   <h1 class="row tituloPrincipal"> Registro de partidos </h1>
 
       <ng-template #showMessage>
-        <p> Solamente puedes registrar cuatro grupos</p>
+        <p> Debes registrar cuatro grupos</p>
       </ng-template>
 
       <div *ngIf="grupos.length==4; else showMessage">
+        <div class="container justify-content-center">
+          <div class="row">
+            <div class="card">
+              <h2 class="card-header">
+                Partido 1
+              </h2>
+              <div class="card-body">
+                <label for="inputGoles" >{{grupos[0].nombre}}</label>
+                <div class="itemForm">
+                  <input #goles1 class="form-control" type="number" placeholder="Goles"/>
+                </div>
+                <label for="inputGoles" >{{grupos[1].nombre}}</label>
+                <div class="itemForm">
+                  <input #goles2 class="form-control" type="number" placeholder="Goles"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button (click)="puntuar(goles1.value,goles2.value,grupos[0].id,grupos[1].id)"> Ingresar </button>
 
       </div>
 

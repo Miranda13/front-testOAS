@@ -31,4 +31,8 @@ export class GrupoService {
   addGrupo(grupo: Grupo): Observable<Grupo> {
     return this.http.post<Grupo>(this.gruposUrl, grupo);
   }
+
+  deleteGrupo(id:string): Observable<Grupo>{
+    return this.http.delete<Grupo>(this.gruposUrl+ '/' + id);
+  }
 }
